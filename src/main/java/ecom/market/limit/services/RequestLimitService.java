@@ -1,7 +1,6 @@
 package ecom.market.limit.services;
 
 import java.time.LocalDateTime;
-import java.util.Arrays;
 import java.util.NavigableSet;
 import java.util.SortedSet;
 import java.util.TreeSet;
@@ -50,7 +49,7 @@ public class RequestLimitService {
         }
     }
   
-    @Scheduled(fixedDelay = 1, timeUnit = TimeUnit.MINUTES)
+    @Scheduled(fixedDelay = 5, timeUnit = TimeUnit.MINUTES)
     public void cleanSets() {
         requestLimit.forEachValue(1, reqSet -> {
             synchronized(reqSet) {
